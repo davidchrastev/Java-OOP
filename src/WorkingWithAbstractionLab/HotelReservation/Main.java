@@ -16,6 +16,5 @@ public class Main {
         double price = PriceCalculator.calculateHolidayPrice(pricePerDay,numberOfDays,season,discountType);
 
         System.out.printf("%.2f",price);
-
     }
 }
