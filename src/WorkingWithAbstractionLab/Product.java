@@ -1,0 +1,8 @@
+package WorkingWithAbstractionLab;
+
+public class Product {
+    private String name;
+    private double cost;
+
+
+}
