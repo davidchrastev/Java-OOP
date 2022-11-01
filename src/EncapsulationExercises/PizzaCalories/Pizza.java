@@ -19,13 +19,9 @@ public class Pizza {
 
     private void setName(String name) {
         if (name == null || name.trim().isEmpty() || name.length() > 15 || name.length() < 1) {
-            throw new IllegalArgumentException("EncapsulationExercises.PizzaCalories.Pizza name should be between 1 and 15 symbols.");
+            throw new IllegalArgumentException("Pizza name should be between 1 and 15 symbols.");
         }
         this.name = name;
-    }
-
-    public List<Topping> getToppings() {
-        return toppings;
     }
 
     private void setToppings(int countOFToppings) {
@@ -35,9 +31,6 @@ public class Pizza {
         this.toppings = new ArrayList<>();
     }
 
-    public Dough getDough() {
-        return dough;
-    }
     public void setDough(Dough dough) {
         this.dough = dough;
     }
@@ -45,7 +38,7 @@ public class Pizza {
         toppings.add(topping);
     }
     public double getOverallCalories() {
-        return dough.calculateCalories() + toppings.stream().mapToDouble(topping -> topping.calculateCalories()).sum();
+        return dough.calculateCalories() + toppings.stream().mapToDouble(Topping::calculateCalories).sum();
     }
 
     @Override

@@ -11,7 +11,6 @@ public enum ToppingTypes {
     ToppingTypes(double modifier) {
         this.modifier = modifier;
     }
-
     public double getModifier() {
         return modifier;
     }

@@ -3,9 +3,8 @@ package EncapsulationExercises.PizzaCalories;
 import java.util.Arrays;
 
 public class Dough {
-
-    private FlourTypes flourType;
-    private BakingTechniques bakingTechnique;
+    private String flourType;
+    private String bakingTechnique;
     private double weight;
 
     public Dough(String flourType, String bakingTechnique, double weight) {
@@ -13,15 +12,13 @@ public class Dough {
         setBakingTechnique(bakingTechnique);
         setWeight(weight);
     }
-
-
     private void setFlourType(String flourType) {
-        boolean toppingExist = Arrays.stream(FlourTypes.values()).anyMatch(t -> t.name().equals(flourType));
+        boolean flourExist = Arrays.stream(FlourTypes.values()).anyMatch(f -> f.name().equals(flourType));
 
-        if (!toppingExist) {
+        if (!flourExist) {
             throw new IllegalArgumentException("Invalid type of dough.");
         } else {
-            this.flourType = FlourTypes.valueOf(flourType);
+            this.flourType = flourType;
         }
     }
 
@@ -32,13 +29,10 @@ public class Dough {
         if (!bakingTechniqueExist) {
             throw new IllegalArgumentException("Invalid type of dough.");
         } else {
-            this.bakingTechnique = BakingTechniques.valueOf(bakingTechnique);
+            this.bakingTechnique = bakingTechnique;
         }
     }
 
-    public double getWeight() {
-        return weight;
-    }
 
     private void setWeight(double weight) {
         if (weight < 1 || weight > 200) {
@@ -52,10 +46,10 @@ public class Dough {
     }
 
     private double getBakingTechniqueModifier() {
-        return bakingTechnique.getModifier();
+        return BakingTechniques.valueOf(bakingTechnique).getModifier();
     }
 
     private double getFlourModifier() {
-        return flourType.getModifier();
+        return FlourTypes.valueOf(flourType).getModifier();
     }
 }
