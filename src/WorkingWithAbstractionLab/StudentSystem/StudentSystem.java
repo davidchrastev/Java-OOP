@@ -36,7 +36,7 @@ public class StudentSystem {
                 } else if (student.getGrade() < 5.00 && student.getGrade() >= 3.50) {
                     toPrint.append(" Average student.");
                 } else {
-                    toPrint.append(" Very nice person.");
+                    toPrint.append(" Very nice IheritanceExercise.person.");
                 }
 
                 System.out.println(toPrint.toString());
