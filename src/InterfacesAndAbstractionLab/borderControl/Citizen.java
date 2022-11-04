@@ -1,4 +1,4 @@
-package borderControl;
+package InterfacesAndAbstractionLab.borderControl;
 
 public class Citizen implements Identifiable{
     private String name;

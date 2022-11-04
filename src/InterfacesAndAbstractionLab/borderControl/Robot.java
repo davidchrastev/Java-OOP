@@ -1,4 +1,4 @@
-package borderControl;
+package InterfacesAndAbstractionLab.borderControl;
 
 public class Robot implements Identifiable {
     private String id;
