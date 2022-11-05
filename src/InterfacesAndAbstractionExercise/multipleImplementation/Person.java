@@ -1,4 +1,4 @@
-package multipleImplementation;
+package InterfacesAndAbstractionExercise.multipleImplementation;
 
 public interface Person {
     String getName();

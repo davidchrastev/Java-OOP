@@ -1,4 +1,4 @@
-package multipleImplementation;
+package InterfacesAndAbstractionExercise.multipleImplementation;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
