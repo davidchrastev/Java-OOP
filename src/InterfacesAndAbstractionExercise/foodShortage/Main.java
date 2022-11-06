@@ -29,13 +29,13 @@ public class Main {
 
         String name = scanner.nextLine();
         while (!"End".equals(name)) {
-
             citizenBuyFood(citizens,name);
             rebelBuyFood(rebels, name);
             name = scanner.nextLine();
         }
         int boughtFood = getBoughtFood(citizens, rebels);
         System.out.println(boughtFood);
+
 
     }
 
