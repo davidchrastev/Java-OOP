@@ -1,4 +1,4 @@
-package telephony;
+package InterfacesAndAbstractionExercise.telephony;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +16,6 @@ public class Main {
 
         Smartphone smartphone = new Smartphone(numbers,urls);
 
-        String call = smartphone.call();
-        System.out.println();
+        System.out.println(smartphone);
     }
 }
