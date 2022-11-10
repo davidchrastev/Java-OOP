@@ -1,45 +1,48 @@
 package vehicles;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String[] data = scanner.nextLine().split(" ");
-        Vehicle car = new Car(Double.parseDouble(data[1]),Double.parseDouble(data[2]));
-        data = scanner.nextLine().split(" ");
-        Vehicle truck = new Truck(Double.parseDouble(data[1]),Double.parseDouble(data[2]));
+
+        Vehicle car = getVehicle(scanner);
+        Vehicle truck = getVehicle(scanner);
 
         int countOperations = Integer.parseInt(scanner.nextLine());
+
+        Map<String, Vehicle> vehicleMap = new LinkedHashMap<>();
+        vehicleMap.put("Car",car);
+        vehicleMap.put("Truck",truck);
 
         for (int i = 0; i < countOperations; i++) {
             String[] commands = scanner.nextLine().split(" ");
             String command = commands[0];
             String type = commands[1];
-            double distanceToDrive = Double.parseDouble(commands[2]);
+            double argument = Double.parseDouble(commands[2]);
 
-            switch (type) {
-                case "Car":
-                    if (command.equals("Drive")) {
-                        System.out.println(car.drive(distanceToDrive));
-                    } else {
-                        car.refuel(distanceToDrive);
-                    }
-                    break;
-                case "Truck":
-                    if (command.equals("Drive")) {
-                        System.out.println(truck.drive(distanceToDrive));
-                    } else {
-                        truck.refuel(distanceToDrive);
-                    }
-                    break;
+            switch (command) {
+                case "Drive" -> System.out.println(vehicleMap.get(type).drive(argument));
+                case "Refuel" -> vehicleMap.get(type).refuel(argument);
             }
         }
 
-        System.out.println(car);
-        System.out.println(truck);
+        vehicleMap.entrySet().forEach(System.out::println);
+        
+    }
+    public static Vehicle getVehicle(Scanner scanner) {
+        String[] data = scanner.nextLine().split(" ");
+        String vehicleType = data[0];
+        double fuelAmount = Double.parseDouble(data[1]);
+        double fuelConsumption = Double.parseDouble(data[2]);
 
-
+        return switch (vehicleType) {
+            case "Car" -> new Car(fuelAmount, fuelConsumption);
+            case "Truck" -> new Truck(fuelAmount, fuelConsumption);
+            default -> null;
+        };
     }
 }
