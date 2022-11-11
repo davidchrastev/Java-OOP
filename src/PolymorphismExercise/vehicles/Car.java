@@ -1,6 +1,4 @@
-package vehicles;
-
-import java.text.DecimalFormat;
+package PolymorphismExercise.vehicles;
 
 public class Car extends Vehicle {
 

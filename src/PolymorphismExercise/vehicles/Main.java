@@ -1,4 +1,4 @@
-package vehicles;
+package PolymorphismExercise.vehicles;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -31,7 +31,7 @@ public class Main {
         }
 
         vehicleMap.entrySet().forEach(System.out::println);
-        
+
     }
     public static Vehicle getVehicle(Scanner scanner) {
         String[] data = scanner.nextLine().split(" ");

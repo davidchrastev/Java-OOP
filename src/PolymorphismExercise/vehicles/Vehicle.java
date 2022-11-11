@@ -1,4 +1,4 @@
-package vehicles;
+package PolymorphismExercise.vehicles;
 
 import java.text.DecimalFormat;
 
