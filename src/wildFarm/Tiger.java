@@ -7,17 +7,16 @@ public class Tiger extends Felime {
     }
 
     @Override
-    void makeSound() {
+    public void makeSound() {
         System.out.println("ROAAR!!!");
     }
 
     @Override
-    void eat(Food food) {
-        if (food.getClass().getSimpleName().equals("Meat")) {
-            super.setFoodEaten(food.getQuantity());
+    public void eat(Food food) {
+        if (food instanceof Meat) {
+            super.eat(food);
         } else {
-            super.setFoodEaten(0);
-            System.out.println("Tigers are not eating that type of food!");
+            throw new IllegalArgumentException("Tigers are not eating that type of food!");
         }
     }
 }

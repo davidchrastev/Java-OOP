@@ -7,16 +7,16 @@ public class Mouse extends Mammal {
     }
 
     @Override
-    void makeSound() {
+    public void makeSound() {
         System.out.println("SQUEEEAAAK!");
     }
 
     @Override
-    void eat(Food food) {
-        if (food.getClass().getSimpleName().equals("Vegetable")) {
-            super.setFoodEaten(food.getQuantity());
+    public void eat(Food food) {
+        if (food instanceof Vegetable) {
+            super.eat(food);
         } else {
-            System.out.println("Mice are not eating that type of food!");
+            throw new IllegalArgumentException("Mice are not eating that type of food!");
         }
     }
 }

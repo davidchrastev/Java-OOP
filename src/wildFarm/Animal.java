@@ -5,10 +5,10 @@ import java.text.DecimalFormat;
 public abstract class Animal {
     private String animalName;
     private String animalType;
-    private Double animalWeight;
-    private Integer foodEaten;
+    private double animalWeight;
+    private int foodEaten = 0;
 
-    public Animal(String animalName, String animalType, Double animalWeight) {
+    protected Animal(String animalName, String animalType, Double animalWeight) {
         this.animalName = animalName;
         this.animalType = animalType;
         this.animalWeight = animalWeight;
@@ -38,19 +38,15 @@ public abstract class Animal {
         this.animalWeight = animalWeight;
     }
 
-    public Integer getFoodEaten() {
+    public int getFoodEaten() {
         return foodEaten;
     }
 
-    public void setFoodEaten(Integer foodEaten) {
+    public void setFoodEaten(int foodEaten) {
         this.foodEaten = foodEaten;
     }
-    abstract void makeSound();
-    abstract void eat(Food food);
+    public abstract void makeSound();
+    public abstract void eat(Food food);
 
-    @Override
-    public String toString() {
-        DecimalFormat df = new DecimalFormat("##.##");
-        return String.format("%s[%s, %s, %s, %d]",getAnimalType(),getAnimalName(),df.format(getAnimalWeight()),getFoodEaten());
-    }
+
 }

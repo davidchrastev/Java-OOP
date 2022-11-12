@@ -12,24 +12,36 @@ public class Main {
 
         while (!"End".equals(input)) {
             String[] foodData = scanner.nextLine().split(" ");
-            getAnimal(input,animals,foodData);
+            Animal animal = getAnimal(input);
+
+            animal.makeSound();
+
+            Food food = getFood(foodData);
+            try {
+                animal.eat(food);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+
+            animals.add(animal);
 
             input = scanner.nextLine();
         }
+
         animals.forEach(System.out::println);
     }
 
 
 
-    private static void getAnimal(String input,List<Animal> animals,String[] foodData) {
+    private static Animal getAnimal(String input) {
         String[] animalData = input.split(" ");
-//        "{AnimalType} {AnimalName} {AnimalWeight} {AnimalLivingRegion}".
-
-//        "{AnimalType} {AnimalName} {AnimalWeight} {AnimalLivingRegion} {CatBreed}"
 
         String animalType = animalData[0];
+
         String animalName = animalData[1];
+
         double animalWeight = Double.parseDouble(animalData[2]);
+
         String livingRegion = animalData[3];
 
         Animal animal = null;
@@ -49,6 +61,12 @@ public class Main {
                 animal = new Mouse(animalName,animalWeight,livingRegion);
                 break;
         }
+
+        return animal;
+
+    }
+
+    private static Food getFood(String[] foodData) {
         String typeFood = foodData[0];
         int quantity = Integer.parseInt(foodData[1]);
         Food food = null;
@@ -60,13 +78,6 @@ public class Main {
                 food = new Vegetable(quantity);
                 break;
         }
-
-        animals.add(animal);
-        animal.makeSound();
-        animal.eat(food);
-
-
-
-
+        return food;
     }
 }

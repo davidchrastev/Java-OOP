@@ -19,18 +19,14 @@ public class Cat extends Felime {
     }
 
     @Override
-    void makeSound() {
+    public void makeSound() {
         System.out.println("Meowwww");
     }
 
-    @Override
-    void eat(Food food) {
-        super.setFoodEaten(food.getQuantity());
-    }
 
     @Override
     public String toString() {
-        DecimalFormat df = new DecimalFormat("##.##");
-        return String.format("%s[%s, %s, %s, %s, %d]",getAnimalType(),getAnimalName(),getBreed(),df.format(getAnimalWeight()),getLivingRegion(),getFoodEaten());
+        DecimalFormat df = new DecimalFormat("#.##");
+        return String.format("%s[%s, %s, %s, %s, %d]",this.getAnimalType(),this.getAnimalName(),this.getBreed(),df.format(this.getAnimalWeight()),this.getLivingRegion(),this.getFoodEaten());
     }
 }
