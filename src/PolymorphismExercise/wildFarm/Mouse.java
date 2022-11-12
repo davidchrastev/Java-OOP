@@ -1,4 +1,4 @@
-package wildFarm;
+package PolymorphismExercise.wildFarm;
 
 public class Mouse extends Mammal {
 

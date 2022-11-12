@@ -1,6 +1,4 @@
-package wildFarm;
-
-import java.text.DecimalFormat;
+package PolymorphismExercise.wildFarm;
 
 public abstract class Animal {
     private String animalName;
