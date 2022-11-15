@@ -1,4 +1,4 @@
-package exams.java.zooExam18_April_2022.entities.foods;
+package exams.Exam_18_April_2022.java.zoo.entities.foods;
 
 public class Meat extends BaseFood {
     private static final int MEAT_CALORIES = 50;
